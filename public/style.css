@@ -9,7 +9,9 @@ header a:hover{
 header {
     display: flex;
     align-items: center;
+    justify-content: center; 
 }
+/*Mise en place du responsive*/
 @media screen and (max-width:320px){
     header img{
         width: 50px;

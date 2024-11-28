@@ -7,9 +7,13 @@ require_once __DIR__ . '/../Database1.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Neptune</title>
+    <title>Le Sablier Tranquille</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Le sablier tranquil</h>
+    <header>
+        <img src="logo_site.jpg"alt="logo du site">
+    </header>
+    <h1>Le sablier tranquille</h>
 </body>
 </html>

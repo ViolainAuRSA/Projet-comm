@@ -1,13 +1,15 @@
+<?php
+
+require_once __DIR__ . '/../Database1.php';
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le sablier tranquil</title>
+    <title>Hotel Neptune</title>
 </head>
 <body>
-    <header>
-        
-    </header>
+    <h1>Le sablier tranquil</h>
 </body>
 </html>

@@ -19,6 +19,7 @@ header {
     }
     header a{
         font-size: 7.5px;
+        padding: 0.25rem;
     }
         h1{
         font-size: 25px;
@@ -43,4 +44,30 @@ header {
         width:100px;
         height: auto;
     }
+}
+@media screen and (min-width:425px){
+    header a{
+        font-size: 15px;
+        padding:1rem;
+    }
+    header img{
+        width:100px;
+        height: auto;
+    }
+}
+@media screen and (min-width:768px) {
+    header a{
+        font-size: 20px;
+        padding:1rem;
+    }
+    header img{
+        width:100px;
+        height: auto;
+    }
+}
+@media screen and (min-width:1024px){
+    
+}
+@media screen and (min-width:1440px) {
+    
 }

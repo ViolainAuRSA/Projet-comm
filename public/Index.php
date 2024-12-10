@@ -6,11 +6,9 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php require_once 'head/meta.php'; ?>
+    <?php require_once 'head/link.php'; ?>
     <title>Sablier Tranquille | Méditation et Bien-être</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -81,12 +79,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Sablier Tranquille. Tous droits réservés.</p>
-    </footer>
-
-    <script src="script.js"></script>
+    <!-- Footer -->   
+    <?php require_once 'footer/footer.php'; ?>
 </body>
 </html>

@@ -1,6 +1,11 @@
 <?php
     require_once 'include.php';
 
+    if(isset($_SESSION['id'])){
+        header("Location: /");
+        exit();
+    }
+
     if(!empty($_POST)){
         extract($_POST);
 
@@ -9,6 +14,7 @@
         if(isset($_POST['register'])){
             $nom = trim($nom);
             $mail = trim($mail);
+            $confmail = trim($confmail);
             $password = trim($password);
             $confpassword = trim($confpassword);}
 
@@ -65,7 +71,11 @@
             }
             if($valid){
 
-                $crypt_password = crypt($password, '$6$rounds=5000$3+z7utvR=!/uKQdd;nuh_?OuyBH(EV)`InQMyMEtKPEDxEI-fFE>}7Bl^D<<LcX^');
+                $crypt_password = password_hash($password, PASSWORD_ARGON2ID);
+
+                if(!password_verify($password, $crypt_password)){
+                    echo "Le mot de passe est invalide";
+                }
 
                 $date_creation = date("Y-m-d H:i:s");
                 $date_connexion = date("Y-m-d H:i:s");

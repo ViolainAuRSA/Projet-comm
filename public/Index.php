@@ -1,5 +1,15 @@
 <?php
+
     require_once 'include.php';
+
+
+    if(isset($_SESSION['id'])){
+        $var = "Bonjour " . $_SESSION['nom'];
+    }else{
+        $var = "Bonjour, veuillez vous connecter";
+    }
+
+    echo $var;
 ?>
 
 <!DOCTYPE html>

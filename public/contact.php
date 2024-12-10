@@ -17,7 +17,7 @@
                 <img src="img/detoured_logo.png" alt="Sablier Tranquille Logo" class="site-logo">
             </div>
             <ul class="nav-links">
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="/">Accueil</a></li>
                 <li><a href="product.php">Nos Produits</a></li>
                 <li><a href="medit.php">Méditation</a></li>
                 <li><a href="#">À propos</a></li>

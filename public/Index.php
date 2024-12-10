@@ -1,3 +1,7 @@
+<?php
+    include_once ('../Database1.php');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

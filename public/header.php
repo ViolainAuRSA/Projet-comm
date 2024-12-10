@@ -4,7 +4,7 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
             </button>
-            <a href="register.php" class="login-btn">
+            <a href="inscription.php" class="login-btn">
                 <span class="login-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <circle cx="12" cy="7" r="4"></circle>

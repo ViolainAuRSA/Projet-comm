@@ -16,7 +16,7 @@
 <body>
     <!-- Header -->
     <header>
-        <?php require_once 'menu/menu.php'; ?>
+    <?php require_once 'menu/menu.php'; ?>
     </header>
 
     <!-- Main Banner -->

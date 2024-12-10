@@ -60,10 +60,6 @@
     </section>
     
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Sablier Tranquille. Tous droits réservés.</p>
-    </footer>
-
-    <script src="script.js"></script>
+    <?php require_once 'footer/footer.php'; ?>
 </body>
 </html>

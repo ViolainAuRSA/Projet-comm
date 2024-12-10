@@ -79,6 +79,7 @@
             </div>
         </div>
     </section>
+    
     <!-- Footer -->   
     <?php require_once 'footer/footer.php'; ?>
 </body>

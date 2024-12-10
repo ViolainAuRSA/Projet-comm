@@ -6,7 +6,7 @@
                 <li><a href="/">Accueil</a></li>
                 <li><a href="product.php">Nos Produits</a></li>
                 <li><a href="medit.php">Méditation</a></li>
-                <li><a href="#">À propos</a></li>
+                <li><a href="">À propos</a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>
             <div class="hamburger">

@@ -1,5 +1,5 @@
 <?php
-    include_once ('../Database1.php');
+    require_once 'include.php';
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +79,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->   
     <?php require_once 'footer/footer.php'; ?>
 </body>

@@ -15,11 +15,11 @@
                 <img src="img/detoured_logo.png" alt="Sablier Tranquille Logo" class="site-logo">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="product.html">Nos Produits</a></li>
-                <li><a href="medit.html">Méditation</a></li>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="product.php">Nos Produits</a></li>
+                <li><a href="medit.php">Méditation</a></li>
                 <li><a href="#">À propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.php">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>

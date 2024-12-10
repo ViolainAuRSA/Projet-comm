@@ -17,11 +17,11 @@
                 <img src="img/detoured_logo.png" alt="Sablier Tranquille Logo" class="site-logo">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="product.html">Nos Produits</a></li>
-                <li><a href="medit.html">Méditation</a></li>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="product.php">Nos Produits</a></li>
+                <li><a href="medit.php">Méditation</a></li>
                 <li><a href="#">À propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.php">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -45,7 +45,7 @@
                     </span>
                 </a>
                     <!-- Boutons séparés -->
-                <a href="cart.html" class="btn-cart">
+                <a href="cart.php" class="btn-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
             </div>
@@ -58,8 +58,8 @@
             <h1>Plongez dans un voyage de sérénité</h1>
             <p>Découvrez nos produits et pratiques pour un bien-être total.</p>
             <div class="banner-buttons">
-                <a href="product.html" class="explore-btn">Explorez nos produits</a>
-                <a href="medit.html" class="meditation-btn">Commencez votre voyage de méditation</a>
+                <a href="product.php" class="explore-btn">Explorez nos produits</a>
+                <a href="medit.php" class="meditation-btn">Commencez votre voyage de méditation</a>
             </div>
         </div>
     </section>
@@ -72,19 +72,19 @@
                 <img src="img/tapis-meditation-shop.jpeg" alt="Tapis de méditation">
                 <h3>Tapis de Méditation</h3>
                 <p>Prix : 39,99€</p>
-                <a href="cart.html" class="add-to-cart">Ajouter au panier</a>
+                <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
             </div>
             <div class="product-card-accueil">
                 <img src="img/encent-shop.jpg" alt="Encens Relaxants">
                 <h3>Encens Relaxants</h3>
                 <p>Prix : 9,99€</p>
-                <a href="cart.html" class="add-to-cart">Ajouter au panier</a>
+                <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
             </div>
             <div class="product-card-accueil">
                 <img src="img/bougie-serenite-shop.jpeg" alt="Bougie de sérénité">
                 <h3>Bougie de Sérénité</h3>
                 <p>Prix : 19,99€</p>
-                <a href="cart.html" class="add-to-cart">Ajouter au panier</a>
+                <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
             </div>
         </div>
     </section>

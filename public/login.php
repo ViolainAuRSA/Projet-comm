@@ -33,12 +33,12 @@
                 if(isset($req['password'])){
                     if(!password_verify($password, $req['password'])){
                         $valid = false;
-                        $err_password = "La combinaison email/mot de passe est incorrecte1";
+                        $err_password = "Le mot de passe est incorrect";
                     }
                 }
                 else{
                     $valid = false;
-                    $err_mail = "La combinaison email/mot de passe est incorrecte2";
+                    $err_mail = "L'email est incorrect";
                 }
 
             }
@@ -69,7 +69,7 @@
                 else{
                     $valid = false;
                     var_dump($req_user);
-                    $err_mail = "La combinaison email/mot de passe est incorrecte3";
+                    $err_mail = "La combinaison email/mot de passe est incorrecte";
                 }
             }
         }

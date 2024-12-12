@@ -1,15 +1,15 @@
 <nav>
             <div class="logo">
-                <img src="img/detoured_logo.png" alt="Sablier Tranquille Logo" class="site-logo">
+                <img src="../img/detoured_logo.png" alt="Sablier Tranquille Logo" class="site-logo">
             </div>
             <ul class="nav-links">
                 <li><a href="/">Accueil</a></li>
-                <li><a href="product.php">Nos Produits</a></li>
-                <li><a href="medit.php">Méditation</a></li>
+                <li><a href="../product.php">Nos Produits</a></li>
+                <li><a href="../medit.php">Méditation</a></li>
                 <li><a href="">À propos</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="../contact.php">Contact</a></li>
                 <?php if(isset($_SESSION['id']) && isset($_SESSION['role']) && $_SESSION['role'] == 1){ ?>
-                    <li><a href="admin/accueil.php">Admin</a></li>
+                    <li><a href="accueil.php">Admin</a></li>
                 <?php } ?>
             </ul>
             <div class="hamburger">
@@ -28,7 +28,7 @@
                 <?php 
                 if(!isset($_SESSION['id'])){
                 ?>
-                <a href="register.php" class="login-btn">
+                <a href="../register.php" class="login-btn">
                     <span class="login-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <circle cx="12" cy="7" r="4"></circle>
@@ -38,7 +38,7 @@
                 </a>
                 <?php }else {
                 ?>
-                 <a href="profil.php" class="login-btn">
+                 <a href="../profil.php" class="login-btn">
                     <span class="login-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <circle cx="12" cy="7" r="4"></circle>
@@ -51,9 +51,9 @@
                 <?php } ?>
                     <!-- Boutons séparés -->
                 <?php if(!isset($_SESSION['id'])){ ?>
-                    <a href="login.php" class="btn-cart">
+                    <a href="../login.php" class="btn-cart">
                 <?php } else { ?>
-                    <a href="cart.php" class="btn-cart">
+                    <a href="../cart.php" class="btn-cart">
                 <?php } ?>
                     <i class="fas fa-shopping-cart"></i>
                     <?php if(isset($_SESSION['cart_count']) && $_SESSION['cart_count'] > 0): ?>

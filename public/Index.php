@@ -2,14 +2,6 @@
 
     require_once 'include.php';
 
-
-    if(isset($_SESSION['id'])){
-        $var = "Bonjour " . $_SESSION['nom'];
-    }else{
-        $var = "Bonjour, veuillez vous connecter";
-    }
-
-    echo $var;
 ?>
 
 <!DOCTYPE html>
@@ -47,31 +39,19 @@
                 <img src="img/tapis-meditation-shop.jpeg" alt="Tapis de méditation">
                 <h3>Tapis de Méditation</h3>
                 <p>Prix : 39,99€</p>
-                <?php if(!isset($_SESSION['id'])){ ?>
-                    <a href="login.php" class="add-to-cart">Ajouter au panier</a>
-                <?php } else { ?>
-                    <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
-                <?php } ?>
+                <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
             </div>
             <div class="product-card-accueil">
                 <img src="img/encent-shop.jpg" alt="Encens Relaxants">
                 <h3>Encens Relaxants</h3>
                 <p>Prix : 9,99€</p>
-                <?php if(!isset($_SESSION['id'])){ ?>
-                    <a href="login.php" class="add-to-cart">Ajouter au panier</a>
-                <?php } else { ?>
-                    <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
-                <?php } ?>
+                <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
             </div>
             <div class="product-card-accueil">
                 <img src="img/bougie-serenite-shop.jpeg" alt="Bougie de sérénité">
                 <h3>Bougie de Sérénité</h3>
                 <p>Prix : 19,99€</p>
-                <?php if(!isset($_SESSION['id'])){ ?>
-                    <a href="login.php" class="add-to-cart">Ajouter au panier</a>
-                <?php } else { ?>
-                    <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
-                <?php } ?>
+                <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
             </div>
         </div>
     </section>

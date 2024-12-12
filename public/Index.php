@@ -47,19 +47,31 @@
                 <img src="img/tapis-meditation-shop.jpeg" alt="Tapis de méditation">
                 <h3>Tapis de Méditation</h3>
                 <p>Prix : 39,99€</p>
-                <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
+                <?php if(!isset($_SESSION['id'])){ ?>
+                    <a href="login.php" class="add-to-cart">Ajouter au panier</a>
+                <?php } else { ?>
+                    <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
+                <?php } ?>
             </div>
             <div class="product-card-accueil">
                 <img src="img/encent-shop.jpg" alt="Encens Relaxants">
                 <h3>Encens Relaxants</h3>
                 <p>Prix : 9,99€</p>
-                <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
+                <?php if(!isset($_SESSION['id'])){ ?>
+                    <a href="login.php" class="add-to-cart">Ajouter au panier</a>
+                <?php } else { ?>
+                    <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
+                <?php } ?>
             </div>
             <div class="product-card-accueil">
                 <img src="img/bougie-serenite-shop.jpeg" alt="Bougie de sérénité">
                 <h3>Bougie de Sérénité</h3>
                 <p>Prix : 19,99€</p>
-                <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
+                <?php if(!isset($_SESSION['id'])){ ?>
+                    <a href="login.php" class="add-to-cart">Ajouter au panier</a>
+                <?php } else { ?>
+                    <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
+                <?php } ?>
             </div>
         </div>
     </section>

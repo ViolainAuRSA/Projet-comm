@@ -46,7 +46,11 @@
 
                 <?php } ?>
                     <!-- Boutons séparés -->
-                <a href="cart.php" class="btn-cart">
+                <?php if(!isset($_SESSION['id'])){ ?>
+                    <a href="login.php" class="btn-cart">
+                <?php } else { ?>
+                    <a href="cart.php" class="btn-cart">
+                <?php } ?>
                     <i class="fas fa-shopping-cart"></i>
                 </a>
             </div>

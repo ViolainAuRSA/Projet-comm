@@ -42,7 +42,7 @@
                 <?php if(!isset($_SESSION['id'])){ ?>   
                     <a href="login.php" class="add-to-cart">Ajouter au panier</a>
                 <?php } else { ?>
-                    <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
+                    <button onclick="addToCart(this)" class="add-to-cart">Ajouter au panier</button>
                 <?php } ?>
             </div>
             <div class="product-card-accueil">
@@ -52,7 +52,7 @@
                 <?php if(!isset($_SESSION['id'])){ ?>   
                     <a href="login.php" class="add-to-cart">Ajouter au panier</a>
                 <?php } else { ?>
-                    <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
+                    <button onclick="addToCart(this)" class="add-to-cart">Ajouter au panier</button>
                 <?php } ?>
             </div>
             <div class="product-card-accueil">
@@ -62,7 +62,7 @@
                 <?php if(!isset($_SESSION['id'])){ ?>   
                     <a href="login.php" class="add-to-cart">Ajouter au panier</a>
                 <?php } else { ?>
-                    <a href="cart.php" class="add-to-cart">Ajouter au panier</a>
+                    <button onclick="addToCart(this)" class="add-to-cart">Ajouter au panier</button>
                 <?php } ?>
             </div>
         </div>
@@ -96,5 +96,28 @@
 
     <!-- Footer -->   
     <?php require_once 'footer/footer.php'; ?>
+    <script>
+    function addToCart(button) {
+        fetch('add_to_cart.php', {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success) {
+                updateCartCounter(data.cart_count);
+            }
+        });
+    }
+
+    function updateCartCounter(count) {
+        let counter = document.querySelector('.cart-counter');
+        if (!counter) {
+            counter = document.createElement('span');
+            counter.className = 'cart-counter';
+            document.querySelector('.btn-cart').appendChild(counter);
+        }
+        counter.textContent = count;
+    }
+    </script>
 </body>
 </html>

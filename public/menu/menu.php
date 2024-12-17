@@ -45,7 +45,7 @@
                             <path d="M5.5 21h13c1 0 2-1 2-2.5 0-3.5-4-6.5-8-6.5s-8 3-8 6.5c0 1.5 1 2.5 2 2.5z"></path>
                         </svg>
                     </span>
-                    <span class="user-name"><?php echo ucfirst($_SESSION['nom']); ?></span>
+                    <span class="user-name"><?php echo ucfirst($_SESSION['nom'] . ' ' ); ?></span>
                 </a>
 
                 <?php } ?>

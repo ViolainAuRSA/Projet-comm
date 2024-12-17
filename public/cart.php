@@ -1,6 +1,15 @@
 <?php
     require_once 'include.php';
+
+// Exemple de requête pour récupérer les produits
+$sql = "SELECT * FROM panier";  // Remplacez "products" par le nom de votre table
+$stmt = $DB->prepare($sql);
+$stmt->execute();  // Exécution de la requête
+
+// Récupérer les résultats de la requête
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,8 +39,15 @@
                 <tbody>
                     <!-- Exemple de produit dans le panier -->
                     <tr>
-                        <td>Tapis de Méditation</td>
-                        <td>39,99€</td>
+                        <td>
+                            <?php 
+                            if(isset($product['nom'])) {
+                                echo $product['nom']; } 
+                            ?>
+                        </td>
+
+
+                        <td><?php if(isset($product['prix'])) { echo $product['prix']; } ?></td>
                         <td>
                             <input type="number" value="1" min="1" class="quantity-input">
                         </td>

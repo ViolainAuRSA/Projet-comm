@@ -25,29 +25,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql_update = "UPDATE panier SET stock_quantite = ? WHERE panier_id = ? AND product_id = ?";
             $stmt_update = $DB->prepare($sql_update);
             $stmt_update->execute([$new_quantity, $panier_id, $id_produit]);
-
-            echo "<p>Quantité mise à jour : $nom_produit</p>";
-            echo "<p>Nouvelle quantité : $new_quantity</p>";
         } else {
             // Produit non présent dans le panier, insérez-le
             $sql_insert = "INSERT INTO panier (panier_id, user_id, product_id, nom, prix, stock_quantite) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt_insert = $DB->prepare($sql_insert);
             $stmt_insert->execute([$panier_id, $user_id, $id_produit, $nom_produit, $prix_produit, $quantite_produit]);
-
-            echo "<p>Produit ajouté : $nom_produit</p>";
-            echo "<p>Quantité : $quantite_produit</p>";
         }
 
-        // Mettez à jour le compteur total dans la session
-        if (!isset($_SESSION['cart_count'])) {
-            $_SESSION['cart_count'] = 0;
-        }
-        $_SESSION['cart_count'] += $quantite_produit;
+        // Calculer le nombre total réel de produits dans le panier
+        $sql_count = "SELECT SUM(stock_quantite) as total FROM panier WHERE panier_id = ?";
+        $stmt_count = $DB->prepare($sql_count);
+        $stmt_count->execute([$panier_id]);
+        $result = $stmt_count->fetch();
+        
+        $_SESSION['cart_count'] = $result['total'] ?? 0;
 
-        echo "<p>Total des articles dans le panier : " . $_SESSION['cart_count'] . "</p>";
+        // Redirection vers product.php
+        header('Location: ../product.php');
         exit;
     } else {
-        echo "<p>Erreur : Données manquantes pour ajouter au panier.</p>";
+        // Redirection en cas d'erreur
+        header('Location: ../product.php');
         exit;
     }
 }

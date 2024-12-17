@@ -1,26 +1,26 @@
 <?php
-    require_once 'include.php';
+require_once 'include.php';
 
-// Exemple de requête pour récupérer les produits
-$sql = "SELECT * FROM panier";  // Remplacez "products" par le nom de votre table
+// Récupérer les produits du panier pour l'utilisateur connecté 
+$sql = "SELECT * FROM panier WHERE user_id = ?";
 $stmt = $DB->prepare($sql);
-$stmt->execute();  // Exécution de la requête
+$stmt->execute([$_SESSION['id']]);  // Utilisez l'ID de l'utilisateur connecté
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC); // Récupérer tous les articles
 
-// Récupérer les résultats de la requête
-$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$totalPriceFinal = 0; // Initialiser le total général
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Panier Utilisateur - Sablier Tranquille</title>
-        <?php require_once 'head/meta.php'; ?>
-        <?php require_once 'head/link.php'; ?>
-    </head>
+<head>
+    <title>Panier Utilisateur - Sablier Tranquille</title>
+    <?php require_once 'head/meta.php'; ?>
+    <?php require_once 'head/link.php'; ?>
+</head>
 <body>
-    <!-- Header -->
+
     <header>
-    <?php require_once 'menu/menu.php'; ?>
+        <?php require_once 'menu/menu.php'; ?>
     </header>
 
     <section class="cart-section">
@@ -37,46 +37,42 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Exemple de produit dans le panier -->
-                    <tr>
-                        <td>
-                            <?php 
-                            if(isset($product['nom'])) {
-                                echo $product['nom']; } 
+                    <?php if (!empty($products)): ?>
+                        <?php foreach ($products as $product): ?>
+                            <?php
+                            // Calculer le total pour cet article
+                            $totalPrice = $product['prix'] * $product['stock_quantite'];
+                            // Ajouter au total général
+                            $totalPriceFinal += $totalPrice;
                             ?>
-                        </td>
-
-
-                        <td><?php if(isset($product['prix'])) { echo $product['prix']; } ?></td>
-                        <td>
-                            <input type="number" value="1" min="1" class="quantity-input">
-                        </td>
-                        <td>39,99€</td>
-                        <td>
-                            <button class="btn-remove">Supprimer</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Bougie de Sérénité</td>
-                        <td>19,99€</td>
-                        <td>
-                            <input type="number" value="2" min="1" class="quantity-input">
-                        </td>
-                        <td>39,98€</td>
-                        <td>
-                            <button class="btn-remove">Supprimer</button>
-                        </td>
-                    </tr>
+                            <tr>
+                                <td><?= htmlspecialchars($product['nom']) ?></td>
+                                <td><?= htmlspecialchars($product['prix']) ?>€</td>
+                                <td><?= htmlspecialchars($product['stock_quantite']) ?></td>
+                                <td><?= htmlspecialchars($totalPrice) ?>€</td>
+                                <td>
+                                    <form method="POST" action="delete_to_cart.php" class="remove-form">
+                                        <input type="hidden" name="product_id" value="<?= htmlspecialchars($product['product_id']) ?>">
+                                        <button type="submit" class="btn-remove">Supprimer</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="5" class="text-center">Votre panier est vide.</td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>
             <div class="cart-summary">
-                <p>Total général : <span class="cart-total">79,97€</span></p>
+                <p>Total général : <span class="cart-total"><?= htmlspecialchars($totalPriceFinal) ?>€</span></p>
                 <button class="btn-checkout">Passer à la caisse</button>
             </div>
         </div>
     </section>
     
-    <!-- Footer -->
     <?php require_once 'footer/footer.php'; ?>
 </body>
 </html>
+

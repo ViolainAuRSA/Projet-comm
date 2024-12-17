@@ -21,8 +21,6 @@
             'quantity' => 1,
         ];
 
-        // Message de confirmation
-        $message = "Le produit '$productName' a bien été ajouté au panier !";
     }
 ?>
 
@@ -42,9 +40,11 @@
     <section class="featured-products">
         <h1>Nos produits pour votre bien-être</h1>
         <div class="product-container">
-            <!-- Exemple d'une carte produit -->
+
             <div class="product-container">
-            <!-- Exemple d'une carte produit -->
+
+
+
             <div class="product-card">
                 <img src="img/tapis-meditation-shop.jpeg" alt="Tapis de Méditation">
                 <h2>Tapis de Méditation</h2>
@@ -61,6 +61,9 @@
                     </form>
                 <?php } ?>
             </div>
+
+
+
             <div class="product-card">
                 <img src="img/encent-shop.jpg" alt="Encens Relaxants">
                 <h2>Encens Relaxants</h2>
@@ -69,12 +72,17 @@
                     <a href="login.php"><button>Ajouter au panier</button></a>
                 <?php } else { ?>
                     <form method="post" action="">
+                        <input type="hidden" name="product_id" value="7">
                         <input type="hidden" name="product_name" value="Encens Relaxants">
                         <input type="hidden" name="product_price" value="9.99">
+                        <input type="hidden" name="product_quantity" value="1">
                         <button type="submit" class="add-to-cart-btn">Ajouter au panier</button>
                     </form>
                 <?php } ?>
             </div>
+
+
+
             <div class="product-card">
                 <img src="img/bougie-serenite-shop.jpeg" alt="Bougie de Sérénité">
                 <h2>Bougie de Sérénité</h2>

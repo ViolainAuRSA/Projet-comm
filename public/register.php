@@ -16,7 +16,9 @@
             $mail = trim($mail);
             $confmail = trim($confmail);
             $password = trim($password);
-            $confpassword = trim($confpassword);}
+            $confpassword = trim($confpassword);
+            $newsletter = isset($_POST['newsletter']) ? 1 : 0;
+        }
 
             if(empty($nom)){
                 $valid = false;
@@ -80,8 +82,8 @@
                 $date_creation = date("Y-m-d H:i:s");
                 $date_connexion = date("Y-m-d H:i:s");
 
-                $req = $DB->prepare("INSERT INTO Utilisateur(nom, mail, password, date_creation, date_connexion) VALUES (?, ?, ?, ?, ?)");
-                $req->execute(array($nom, $mail, $crypt_password, $date_creation, $date_connexion));
+                $req = $DB->prepare("INSERT INTO Utilisateur(nom, mail, password, date_creation, date_connexion, newsletter) VALUES (?, ?, ?, ?, ?, ?)");
+                $req->execute(array($nom, $mail, $crypt_password, $date_creation, $date_connexion, $newsletter));
 
                 
                 header("Location: login.php");
@@ -127,20 +129,20 @@
                     <input type="password" id="password" name="password" placeholder="Mot de passe" value="<?php if(isset($password)) echo $password; ?>">
                     <?php if(isset($err_password)) echo $err_password; ?>
                 </div>
+
                 <div class="form-group">
                     <label for="confpassword">Confirmation du mot de passe</label>
                     <input type="password" id="confpassword" name="confpassword" placeholder="Mot de passe">
                     <?php if(isset($err_confpassword)) echo $err_confpassword; ?>
                 </div>
+                <p>S'inscrire à la newsletter</p>
+                <input type="checkbox" id="newsletter" name="newsletter" value="1">
                 <button type="submit" class="submit-btn" name="register">S'inscrire</button>
             </form>
-            <div class="login-link">
-                <p>Déjà un compte ? <a href="login.php">Se connecter</a></p>
-            </div>
+            <p class="register-link">Déjà inscrit ? <a href="login.php">Connectez-vous ici</a></p>
         </div>
-    </main>
+    </div>
 
-    <!-- Footer -->
     <?php require_once 'footer/footer.php'; ?>
 </body>
 </html> 

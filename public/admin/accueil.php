@@ -8,6 +8,7 @@
         echo "Trace ta route c'est pas pour toi ici";
         exit();
     }
+    
 ?>
 <DOCTYPE html>
 <html lang="fr">

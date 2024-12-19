@@ -8,7 +8,7 @@
     }
 
     // Récupérer les informations de l'utilisateur connecté
-    $req = $DB->prepare("SELECT nom, mail, date_creation, date_connexion FROM Utilisateur WHERE id = ?");
+    $req = $DB->prepare("SELECT nom, mail, date_creation, date_connexion, newsletter FROM Utilisateur WHERE id = ?");
     $req->execute(array($_SESSION['id']));
     $user = $req->fetch();
 
@@ -36,7 +36,12 @@
             echo "Nom : " . htmlspecialchars($user['nom']) . "<br>";
             echo "Email : " . htmlspecialchars($user['mail']) . "<br>";
             echo "Membre depuis : " . date('d/m/Y', strtotime($user['date_creation'])) . "<br>";
-            echo "Dernière connexion : " . date('d/m/Y à H:i', strtotime($user['date_connexion']));
+            echo "Dernière connexion : " . date('d/m/Y à H:i', strtotime($user['date_connexion'])) . "<br>";
+            if(empty($user['newsletter'] == 1)){
+                echo "Vous n'êtes pas inscrit à la newsletter";
+            }else{
+                echo "Vous êtes inscrit à la newsletter";
+            }
         }
     ?>
     <div class="product-card-accueil">

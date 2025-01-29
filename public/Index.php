@@ -8,13 +8,6 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez Sablier Tranquille, votre boutique en ligne spécialisée dans les produits de méditation et de bien-être. Trouvez la sérénité avec notre sélection de produits de qualité.">
-    <meta name="keywords" content="méditation, bien-être, zen, relaxation, sablier tranquille">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://sabliertranquille.com" />
-    <title>Sablier Tranquille - Boutique de Méditation et Bien-être</title>
     <?php require_once 'head/meta.php'; ?>
     <?php require_once 'head/link.php'; ?>
     <?php require_once 'head/script.php'; ?>

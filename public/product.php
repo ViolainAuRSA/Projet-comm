@@ -1,6 +1,6 @@
 <?php
     require_once 'include.php';
-    include 'valid/valid_product.php';
+    include 'valid_product.php';
 
     // Message de confirmation
     $message = "";
@@ -10,16 +10,16 @@
         $productName = $_POST['product_name'];
         $productPrice = $_POST['product_price'];
 
-        // Ajouter au panier en session
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = [];
-        }
+            // Ajouter au panier en session
+            if (!isset($_SESSION['cart'])) {
+                $_SESSION['cart'] = [];
+            }
 
-        $_SESSION['cart'][] = [
-            'name' => $productName,
-            'price' => $productPrice,
-            'quantity' => 1,
-        ];
+            $_SESSION['cart'][] = [
+                'name' => $productName,
+                'price' => $productPrice,
+                'quantity' => 1,
+            ];
 
     }
 ?>

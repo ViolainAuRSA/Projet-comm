@@ -34,51 +34,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Démarrer une transaction
             $DB->beginTransaction();
 
-            if ($existing_product) {
+        if ($existing_product) {
                 // Vérifier si le stock est suffisant pour l'augmentation
                 if ($product_stock['stock_quantite'] < 0) {
-                    $DB->rollBack();
+                $DB->rollBack();
                     echo "Stock insuffisant";
-                    exit;
-                }
+                exit;
+            }
 
                 // Mettre à jour la quantité dans le panier
                 $new_quantity = $existing_product['stock_quantite'] + $quantite_produit;
                 $sql_update = "UPDATE panier SET stock_quantite = ? WHERE panier_id = ? AND product_id = ?";
-                $stmt_update = $DB->prepare($sql_update);
+            $stmt_update = $DB->prepare($sql_update);
                 $stmt_update->execute([$new_quantity, $panier_id, $id_produit]);
-            } else {
-                // Ajouter au panier
+        } else {
+            // Ajouter au panier
                 $sql_insert = "INSERT INTO panier (panier_id, user_id, product_id, nom, prix, stock_quantite) 
                               VALUES (?, ?, ?, ?, ?, ?)";
-                $stmt_insert = $DB->prepare($sql_insert);
+            $stmt_insert = $DB->prepare($sql_insert);
                 $stmt_insert->execute([$panier_id, $user_id, $id_produit, $nom_produit, $prix_produit, $quantite_produit]);
-            }
+        }
 
-            // Mettre à jour le stock du produit
-            $new_stock = $product_stock['stock_quantite'] - $quantite_produit;
-            $sql_update_stock = "UPDATE produits SET stock_quantite = ? WHERE product_id = ?";
-            $stmt_update_stock = $DB->prepare($sql_update_stock);
-            $stmt_update_stock->execute([$new_stock, $id_produit]);
+        // Mettre à jour le stock du produit
+        $new_stock = $product_stock['stock_quantite'] - $quantite_produit;
+        $sql_update_stock = "UPDATE produits SET stock_quantite = ? WHERE product_id = ?";
+        $stmt_update_stock = $DB->prepare($sql_update_stock);
+        $stmt_update_stock->execute([$new_stock, $id_produit]);
 
-            // Calculer le nombre total de produits dans le panier
+        // Calculer le nombre total de produits dans le panier
             $sql_count = "SELECT SUM(stock_quantite) as total FROM panier WHERE panier_id = ?";
-            $stmt_count = $DB->prepare($sql_count);
+        $stmt_count = $DB->prepare($sql_count);
             $stmt_count->execute([$panier_id]);
-            $result = $stmt_count->fetch();
-            
-            $_SESSION['cart_count'] = $result['total'] ?? 0;
+        $result = $stmt_count->fetch();
+        
+        $_SESSION['cart_count'] = $result['total'] ?? 0;
 
-            // Valider la transaction
-            $DB->commit();
+        // Valider la transaction
+        $DB->commit();
 
             header('Location: ../product.php');
-            exit;
-        } catch (Exception $e) {
+        exit;
+    } catch (Exception $e) {
             // En cas d'erreur, annuler toutes les modifications
-            $DB->rollBack();
+        $DB->rollBack();
             echo "Une erreur est survenue : " . $e->getMessage();
-            exit;
+        exit;
         }
     }
 }

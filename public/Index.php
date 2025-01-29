@@ -8,9 +8,16 @@
 <html lang="fr">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez Sablier Tranquille, votre boutique en ligne spécialisée dans les produits de méditation et de bien-être. Trouvez la sérénité avec notre sélection de produits de qualité.">
+    <meta name="keywords" content="méditation, bien-être, zen, relaxation, sablier tranquille">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sabliertranquille.com" />
+    <title>Sablier Tranquille - Boutique de Méditation et Bien-être</title>
     <?php require_once 'head/meta.php'; ?>
     <?php require_once 'head/link.php'; ?>
-    <title>Sablier Tranquille | Méditation et Bien-être</title>
+    <?php require_once 'head/script.php'; ?>
 </head>
 
 <body>
@@ -36,7 +43,7 @@
         <h1>Nos produits pour votre bien-être</h1>
         <div class="product-cards-accueil">
             <div class="product-card-accueil">
-                <img src="img/tapis-meditation-shop.jpeg" alt="Tapis de méditation">
+                <img src="img/tapis-meditation-shop.jpeg" alt="Tapis de méditation premium pour une pratique confortable" width="300" height="300" loading="lazy">
                 <h3>Tapis de Méditation</h3>
                 <p>Prix : 39,99€</p>
                 <?php if(!isset($_SESSION['id'])){ ?>   
@@ -46,7 +53,7 @@
                 <?php } ?>
             </div>
             <div class="product-card-accueil">
-                <img src="img/encent-shop.jpg" alt="Encens Relaxants">
+                <img src="img/encent-shop.jpg" alt="Encens naturels pour la relaxation et la méditation" width="300" height="300" loading="lazy">
                 <h3>Encens Relaxants</h3>
                 <p>Prix : 9,99€</p>
                 <?php if(!isset($_SESSION['id'])){ ?>   
@@ -56,7 +63,7 @@
                 <?php } ?>
             </div>
             <div class="product-card-accueil">
-                <img src="img/bougie-serenite-shop.jpeg" alt="Bougie de sérénité">
+                <img src="img/bougie-serenite-shop.jpeg" alt="Bougie aromathérapie pour une ambiance zen" width="300" height="300" loading="lazy">
                 <h3>Bougie de Sérénité</h3>
                 <p>Prix : 19,99€</p>
                 <?php if(!isset($_SESSION['id'])){ ?>   
@@ -96,6 +103,8 @@
 
     <!-- Footer -->   
     <?php require_once 'footer/footer.php'; ?>
+
+
     <script>
     function addToCart(button) {
         fetch('add_to_cart.php', {
@@ -119,5 +128,6 @@
         counter.textContent = count;
     }
     </script>
+    
 </body>
 </html>

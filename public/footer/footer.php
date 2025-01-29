@@ -1,29 +1,3 @@
-<?php
-if (isset($_SESSION['id'])) {
-
-    // Récupérer le rôle actuel de la newsletter pour l'utilisateur connecté
-    $req = $DB->prepare("SELECT newsletter FROM Utilisateur WHERE id = ?");
-    $req->execute([$_SESSION['id']]);
-    $user = $req->fetch();
-
-    if (!$user) {
-        die("Utilisateur non trouvé.");
-    }
-
-    $newsletter = $user['newsletter'];
-
-    // Vérifier si le formulaire a été soumis
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Inverser la valeur actuelle de newsletter
-        $newNewsletter = $newsletter == 0 ? 1 : 0;
-
-        // Mettre à jour la valeur dans la base de données
-        $update = $DB->prepare("UPDATE Utilisateur SET newsletter = ? WHERE id = ?");
-        $update->execute([$newNewsletter, $_SESSION['id']]);
-
-    }
-}
-?>
 <footer class="main-footer">
     <div class="footer-content">
         <!-- À propos -->
@@ -67,15 +41,29 @@ if (isset($_SESSION['id'])) {
         <div class="footer-section">
             <h3>Newsletter</h3>
             <p>Restez informé de nos nouveautés et promotions</p>
-            <form class="newsletter-form" method="POST">
+            <form class="newsletter-form" action="../update_newsletter.php" method="POST">
                 <div class="form-group">
                     <?php
                     if(isset($_SESSION['id'])){
-                        if($newsletter == 1){
-                            echo '<button type="submit" class="btn-subscribe">Se désabonner</button>';
-                        }elseif($newsletter == 0){
+                        // Récupération du statut actuel depuis la base de données
+                        $req = $DB->prepare("SELECT newsletter FROM Utilisateur WHERE id = ?");
+                        $req->execute(array($_SESSION['id']));
+                        $user_data = $req->fetch();
+                        
+                        if($user_data && isset($user_data['newsletter'])){
+                            if($user_data['newsletter'] == 1){
+                                echo '<button type="submit" class="btn-subscribe">Se désabonner</button>';
+                                echo '<input type="hidden" name="newsletter-form" value="0">';
+                            } else {
+                                echo '<button type="submit" class="btn-subscribe">S\'abonner</button>';
+                                echo '<input type="hidden" name="newsletter-form" value="1">';
+                            }
+                        } else {
                             echo '<button type="submit" class="btn-subscribe">S\'abonner</button>';
+                            echo '<input type="hidden" name="newsletter-form" value="1">';
                         }
+                    } else {
+                        echo '<p>Connectez-vous pour gérer votre abonnement à la newsletter</p>';
                     }
                     ?>
                 </div>
@@ -251,7 +239,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-
-<body>
-</body>
-</html>

@@ -27,9 +27,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez notre sélection de produits de méditation et de bien-être. Des articles soigneusement sélectionnés pour votre pratique quotidienne.">
+    <meta name="keywords" content="produits méditation, accessoires bien-être, boutique zen">
+    <meta name="robots" content="index, follow">
     <title>Nos Produits - Sablier Tranquille</title>
     <?php require_once 'head/meta.php'; ?>
     <?php require_once 'head/link.php'; ?>
+    <?php require_once 'head/script.php'; ?>
 </head>
 <body>
     <header>

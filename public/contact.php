@@ -5,9 +5,14 @@
 <html lang="fr">
 
 <head>
-    <title>Sablier Tranquille | Méditation et Bien-être</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez l'équipe de Sablier Tranquille pour toute question sur nos produits de méditation et de bien-être. Notre équipe est à votre écoute.">
+    <meta name="robots" content="index, follow">
+    <title>Contact - Sablier Tranquille</title>
     <?php require_once 'head/meta.php'; ?>
     <?php require_once 'head/link.php'; ?>
+    <?php require_once 'head/script.php'; ?>
 </head>
 
 <body>

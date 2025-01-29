@@ -95,9 +95,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Inscription | Sablier Tranquille</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Créez votre compte sur Sablier Tranquille pour accéder à tous nos services et profiter d'une expérience personnalisée.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Inscription - Sablier Tranquille</title>
     <?php require_once 'head/meta.php'; ?>
     <?php require_once 'head/link.php'; ?>
+    <?php require_once 'head/script.php'; ?>
 </head>
 <body>
     <!-- Header -->
@@ -135,8 +140,6 @@
                     <input type="password" id="confpassword" name="confpassword" placeholder="Mot de passe">
                     <?php if(isset($err_confpassword)) echo $err_confpassword; ?>
                 </div>
-                <p>S'inscrire à la newsletter</p>
-                <input type="checkbox" id="newsletter" name="newsletter" value="1">
                 <button type="submit" class="submit-btn" name="register">S'inscrire</button>
             </form>
             <p class="register-link">Déjà inscrit ? <a href="login.php">Connectez-vous ici</a></p>

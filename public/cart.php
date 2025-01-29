@@ -11,11 +11,16 @@ $totalPriceFinal = 0; // Initialiser le total général
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <title>Panier Utilisateur - Sablier Tranquille</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Votre panier d'achats chez Sablier Tranquille. Retrouvez vos produits sélectionnés et finalisez votre commande en toute sécurité.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Votre Panier - Sablier Tranquille</title>
     <?php require_once 'head/meta.php'; ?>
     <?php require_once 'head/link.php'; ?>
+    <?php require_once 'head/script.php'; ?>
 </head>
 <body>
 

@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /product.php
+Allow: /contact.php
+Allow: /medit.php
+Disallow: /admin/
+Disallow: /cart.php
+Disallow: /login.php
+Disallow: /register.php
+
+Sitemap: https://sabliertranquille.com/sitemap.xml 

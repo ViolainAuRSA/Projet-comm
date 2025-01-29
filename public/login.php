@@ -61,6 +61,7 @@
                     $_SESSION['nom'] = $req_user['nom'];
                     $_SESSION['mail'] = $req_user['mail'];
                     $_SESSION['role'] = $req_user['role'];
+                    $_SESSION['newsletter'] = isset($req_user['newsletter']) ? $req_user['newsletter'] : 0;
 
                 
                     header("Location: /");
@@ -79,9 +80,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Connexion | Sablier Tranquille</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connectez-vous à votre compte Sablier Tranquille pour accéder à votre espace personnel et gérer vos commandes.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Connexion - Sablier Tranquille</title>
     <?php require_once 'head/meta.php'; ?>
     <?php require_once 'head/link.php'; ?>
+    <?php require_once 'head/script.php'; ?>
 </head>
 <body>
     <!-- Header -->
